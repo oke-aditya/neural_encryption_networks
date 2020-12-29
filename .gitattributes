@@ -27,7 +27,7 @@
 # *.ipynb  text
 
 # To ignore it use below
-# *.ipynb linguist-documentation
+*.ipynb linguist-documentation
 
 # Note: .db, .p, and .pkl files are associated
 # with the python modules ``pickle``, ``dbm.*``,

@@ -1,6 +1,3 @@
-# Taken from pl-bolts.
-# https://github.com/PyTorchLightning/pytorch-lightning-bolts/blob/master/.github/workflows/code-format.yml
-
 name: Check Code formatting
 
 # see: https://help.github.com/en/actions/reference/events-that-trigger-workflows
@@ -28,4 +25,4 @@ jobs:
 
       - name: Flake8 Code Formatting
         run: |
-          flake8 . --max-line-length=127
+          flake8 .
