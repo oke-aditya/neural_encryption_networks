@@ -2,6 +2,7 @@
 
 <div align="center">
 
+![Check Code formatting](https://github.com/oke-aditya/neural_encryption_networks/workflows/Check%20Code%20formatting/badge.svg)
 ![Build mkdocs](https://github.com/oke-aditya/template_python/workflows/Build%20mkdocs/badge.svg)
 ![Deploy mkdocs](https://github.com/oke-aditya/template_python/workflows/Deploy%20mkdocs/badge.svg)
 
