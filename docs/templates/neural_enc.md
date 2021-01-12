@@ -1,6 +1,6 @@
 ## Neural Encryption Networks
 
-### What is Neural Encrpytion ?
+### What is Neural Encryption ?
 
 
 ### How it is different from traditional cryptography ?
