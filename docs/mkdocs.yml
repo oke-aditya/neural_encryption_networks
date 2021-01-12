@@ -26,7 +26,7 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Intro: introduction.md
+  - Introduction: introduction.md
   - Autoencoders: autoencoders.md
   - Neural Encrpytion: neural_enc.md
   - Securing with Keys: keys.md
