@@ -1,6 +1,9 @@
 # ICADCML 2021 A Novel Approach to Encrypt Data using Deep Neural Networks
 
-This is docs built using [mkdocs.org](https://www.mkdocs.org).
+In this paper we propose a novel approach to Encrpyt data using Deep Neural Networks.
+We propose an Autoencoder techinque which can sucessfully encrypt and decrypt data.
+We secure this method using keys by ensembling autoencoders.
+
 ## Project layout
 
 This is how the project is structured.
@@ -21,4 +24,3 @@ We also provide Colab Notebooks that can be used to reproduce our results.
 
 We will provide a Bibtex entry soon.
 For now people can cite this GitHub repository.
-

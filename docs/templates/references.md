@@ -2,6 +2,14 @@
 
 These contain more detailed explaintions on concepts that we have used.
 
+- Autoencoders ->
+- Crpytography ->
+
+## Credits
+
+1. Autoencoder Image in docs is taken from
+Neural Network Projects with Python, James Loy
+
 ## Citations
 
 1. Volna, Eva and Kotyrba, Martin and Kocian, Vaclav and Janosek, Michal, “Cryp-
@@ -27,7 +35,28 @@ Encryption with AES “, International Journal of Advanced Research in Computer
 Science and Software Engineering, ISBN 2277 128X, Volume 3, Issue 5,pp 376-381,
 May 2013.
 
-## Credits
+7. Qutaiba Ali and Shefa A. Dawwd, “ On demand ciphering engine using artificial
+neural network, “ Int. Arab J. Inf. Technol., Volume 13, pp 462–470, 2016
 
-1. Autoencoder Image in docs is taken from
-Neural Network Projects with Python, James Loy
+8. Shweta Joshi and Vishwanath Udupi and Dipesh Joshi, “A novel neural network
+approach for digital image data encryption/decryption “, 2012 International Con-
+ference on Power, Signals, Controls and Computation, pp 1–4, 2012.
+
+9. R. Yegireddi and R. K. Kumar “A survey on conventional encryption algorithms of
+Cryptography“, 2016 International Conference on ICT in Business Industry Gov-
+ernment (ICTBIG), pp 1–4, 2016.
+
+10. Mushtaq, Muhammad and Jamel, Sapiee and Disina, Abdulkadir and Pindar,
+Zahraddeen and Shakir, Nur and Mat Deris, Mustafa, “ A Survey on the Cryp-
+tographic Encryption Algorithms “, International Journal of Advanced Computer
+Science and Applications, Volume 8, pp 333–344, November 2017.
+
+11. F. J. D’souza and D. Panchal, “ Advanced encryption standard (AES) security en-
+hancement using hybrid approach “, 2017 International Conference on Computing,
+Communication and Automation (ICCCA), pp 647–652, 2017.
+
+12. N. Provos, ”A Virtual Honeypot Framework”, Proc. Usenix Security Conf., 2004.
+
+## Documentation
+
+This is docs built using [mkdocs.org](https://www.mkdocs.org).
