@@ -29,4 +29,5 @@ nav:
   - Intro: introduction.md
   - Autoencoders: autoencoders.md
   - Neural Encrpytion: neural_enc.md
-  - Code: code_explaination.md
+  - Securing with Keys: keys.md
+  - Code Explaination: code_explaination.md
