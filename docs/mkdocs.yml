@@ -28,7 +28,7 @@ nav:
   - Home: index.md
   - Introduction: introduction.md
   - Autoencoders: autoencoders.md
+  - Mapping: mapping.md
   - Neural Encrpytion: neural_enc.md
   - Securing with Keys: keys.md
-  - Code Explaination: code_explaination.md
-  - Code: code_explaination.md
+  - End Note: thankyou.md
