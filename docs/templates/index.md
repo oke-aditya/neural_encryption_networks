@@ -3,6 +3,9 @@
 This is docs built using [mkdocs.org](https://www.mkdocs.org).
 ## Project layout
 
+This is how the project is structured.
+We also provide Colab Notebooks that can be used to reproduce our results.
+
 ```
 
 ├── docs                            # Documentation files built using mkdocs
@@ -13,3 +16,9 @@ This is docs built using [mkdocs.org](https://www.mkdocs.org).
 │   └── src                         # Python scripts.
 └── requirements.txt                # To install stuff.
 ```
+
+## Citation
+
+We will provide a Bibtex entry soon.
+For now people can cite this GitHub repository.
+
