@@ -67,4 +67,6 @@ if __name__ == "__main__":
     packet = "abcd"
     nets = [encrypter_small, encrypter_large]
 
-    encrypted_file, public_key = allocate_encrypt_packet(packet, nets, "encrypted_data.npy", "public_key.npy")
+    encrypted_file, public_key = allocate_encrypt_packet(
+        packet, nets, "encrypted_data.npy", "public_key.npy"
+    )
