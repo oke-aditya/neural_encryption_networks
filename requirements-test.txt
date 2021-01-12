@@ -7,4 +7,3 @@ pyOpenSSL
 python-gnupg
 python-ldap
 scipy
-secrets
