@@ -28,6 +28,6 @@ nav:
   - Home: index.md
   - Autoencoders: autoencoders.md
   - Mapping: mapping.md
-  - Neural Encrpytion: neural_enc.md
+  - Neural Encryption: neural_enc.md
   - Securing with Keys: keys.md
   - References: references.md
