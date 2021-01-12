@@ -1,4 +1,4 @@
-## HashMaps
+## Mapping
 
 In order for the one hot vector generation to happen, it was essential to use some sort of mapping, and thus, *hash maps* were chosen for this purpose.
 
