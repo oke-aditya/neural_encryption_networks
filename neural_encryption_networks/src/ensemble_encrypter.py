@@ -20,25 +20,18 @@ def create_input_array(word):
 
 
 # For every dataPacket allocate NNs and encrypt parallely.
-def allocate_encrypt_packet(packet, nets, filename, net_list_f):
-    net_list = []
-    # name_list = []
+def allocate_encrypt_packet(packet, nets, filename, public_key_f):
+    public_key = []
     with open(filename, "wb") as f:
         for bit in packet:
             net = randbelow(2)
-            net_list.append(net)
+            public_key.append(net)
             bit_arr = create_input_array(bit)
             encoded = nets[net].predict(bit_arr)
-            # print(encoded)
             np.save(f, encoded)
-    # np.savez("try1",encoded)
-
-    # name_list.append()
-    # encoded = encoded.tolist()
-    # encoded_data.append(encoded)
-    np_net_list = np.array(net_list)
-    np.save(net_list_f, np_net_list)
-    return (f, net_list_f)
+    np_public_key = np.array(public_key)
+    np.save(public_key_f, np_public_key)
+    return (f, public_key_f)
 
 
 if __name__ == "__main__":
@@ -74,4 +67,4 @@ if __name__ == "__main__":
     packet = "abcd"
     nets = [encrypter_small, encrypter_large]
 
-    encoded_file, net_list = allocate_encrypt_packet(packet, nets, "multisave.npy", "net_list.npy")
+    encrypted_file, public_key = allocate_encrypt_packet(packet, nets, "encrypted_data.npy", "public_key.npy")
