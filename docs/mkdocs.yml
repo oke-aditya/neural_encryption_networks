@@ -26,7 +26,6 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Introduction: introduction.md
   - Autoencoders: autoencoders.md
   - Mapping: mapping.md
   - Neural Encrpytion: neural_enc.md
