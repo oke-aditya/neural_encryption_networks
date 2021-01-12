@@ -5,11 +5,11 @@ These contain more detailed explaintions on concepts that we have used.
 ### Autoencoders:
 
 Nice set of [video lectures](https://www.youtube.com/watch?v=wPz3MPl5jvY&list=PLyqSpQzTE6M9gCgajvQbc68Hk_JKGBAYT&index=52)
-from NPTEL which describe how Auto-enocders work.
+from NPTEL which describe how Auto-enocders work in detail.
 
 ### Crpytography:
 
-- You can have a look at [Coursera Course](https://www.coursera.org/learn/crypto) from Stanford University.
+You can have a look at [Coursera Course](https://www.coursera.org/learn/crypto) from Stanford University.
 
 ## Credits
 

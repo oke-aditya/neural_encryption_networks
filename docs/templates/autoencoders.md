@@ -18,5 +18,13 @@ Learning this latent representation allows us to uniquely encrypt data.
 
 ## Training Autoencoder: -
 
-## Latent Representation for Cryptography: -
+To trian an autoencoder we should simulatanously train the encoder as well as the decoder.
+While the encoder tries to minimize the given input representation, the decoder tries to recreate encoder inputs.
+In this process they both learn the latent representation.
+
+## Small Hint of Supervision: -
+
+The latent representation can be completely random. Since, it is jointly learnt to minize the loss.
+We can add a small hint of supervision by passing labels for encoders and decoders.
+This makes the latent distribution a bit consistent. This helps in deterministic execution of AutoEncoder.
 
