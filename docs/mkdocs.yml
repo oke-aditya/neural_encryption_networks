@@ -1,4 +1,4 @@
-site_name: Documentation for Novel Approach to Encrypt Data.
+site_name: ICADCML 2021 Neural Encryption Networks
 theme:
   name: "material"
   palette:
@@ -26,3 +26,7 @@ extra_javascript:
 
 nav:
   - Home: index.md
+  - Intro: introduction.md
+  - Autoencoders: autoencoders.md
+  - Neural Encrpytion: neural_enc.md
+  - Code: code_explaination.md
