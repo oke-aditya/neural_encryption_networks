@@ -2,13 +2,23 @@
 
 These contain more detailed explaintions on concepts that we have used.
 
-- Autoencoders ->
-- Crpytography ->
+### Autoencoders:
+
+Nice set of [video lectures](https://www.youtube.com/watch?v=wPz3MPl5jvY&list=PLyqSpQzTE6M9gCgajvQbc68Hk_JKGBAYT&index=52)
+from NPTEL which describe how Auto-enocders work.
+
+### Crpytography:
+
+- You can have a look at [Coursera Course](https://www.coursera.org/learn/crypto) from Stanford University.
 
 ## Credits
 
 1. Autoencoder Image in docs is taken from
 Neural Network Projects with Python, James Loy
+
+2. This is docs built using [mkdocs.org](https://www.mkdocs.org).
+
+3. Google Colab for model training and notebooks !
 
 ## Citations
 
@@ -56,7 +66,3 @@ hancement using hybrid approach “, 2017 International Conference on Computing,
 Communication and Automation (ICCCA), pp 647–652, 2017.
 
 12. N. Provos, ”A Virtual Honeypot Framework”, Proc. Usenix Security Conf., 2004.
-
-## Documentation
-
-This is docs built using [mkdocs.org](https://www.mkdocs.org).
