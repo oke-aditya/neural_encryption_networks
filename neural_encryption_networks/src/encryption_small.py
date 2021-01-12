@@ -1,12 +1,10 @@
-from tensorflow.keras import Sequential
-from tensorflow.keras import layers
-from tensorflow.keras import optimizers
-from tensorflow.keras.callbacks import ModelCheckpoint
-from tensorflow.keras.callbacks import ReduceLROnPlateau
-from tensorflow.keras.models import model_from_json
+import warnings
+
 import numpy as np
 from sklearn.metrics import accuracy_score
-import warnings
+from tensorflow.keras import Sequential, layers, optimizers
+from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
+from tensorflow.keras.models import model_from_json
 
 warnings.filterwarnings("ignore")
 
@@ -26,7 +24,6 @@ def create_input_array(word):
     for i in word:
         arr = np.zeros(91)
         enc = ord(i) - 32
-        #         print(enc)
         arr[enc] += 1
         enc_l.append(arr)
     return np.array(enc_l)
@@ -314,9 +311,7 @@ if __name__ == "__main__":
     decrypter_optimizer = optimizers.Adam(lr=learning_rate)
 
     decrypter.compile(
-        optimizer=decrypter_optimizer,
-        loss="mean_squared_error",
-        metrics=["acc"]
+        optimizer=decrypter_optimizer, loss="mean_squared_error", metrics=["acc"]
     )
 
     decrypter_X_train = Y_train
@@ -385,20 +380,20 @@ if __name__ == "__main__":
     accuracy(decrypted_Y_test_pred, decrypter_Y_test)
 
     # serialize model to JSON
-    model_json = decrypter.to_json()
+    decrypter_json = decrypter.to_json()
     with open("decrypter_small.json", "w") as json_file:
-        json_file.write(model_json)
+        json_file.write(decrypter_json)
     # serialize weights to HDF5
     decrypter.save_weights("decrypter_small.h5")
-    print("Saved model to disk")
+    print("Saved decrypter to disk")
 
-    # load json and create model
+    # load json and create decrypter
     json_file = open("/content/decrypter_small.json", "r")
-    loaded_model_json = json_file.read()
+    loaded_decrypter_json = json_file.read()
     json_file.close()
-    loaded_model = model_from_json(loaded_model_json)
-    # load weights into new model
-    loaded_model.load_weights("/content/decrypter_small.h5")
-    print("Loaded model from disk")
+    loaded_decrypter = model_from_json(loaded_decrypter_json)
+    # load weights into new decrypter
+    loaded_decrypter.load_weights("/content/decrypter_small.h5")
+    print("Loaded decrypter from disk")
 
     print("Decrypter can be loaded and run")

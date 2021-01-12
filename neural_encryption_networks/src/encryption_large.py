@@ -1,12 +1,10 @@
-from keras import Sequential
-from keras import layers
-from keras import optimizers
-from keras.callbacks import ModelCheckpoint
-from keras.callbacks import ReduceLROnPlateau
-from keras.models import model_from_json
 import warnings
+
 import numpy as np
 from sklearn.metrics import accuracy_score
+from tensorflow.keras import Sequential, layers, optimizers
+from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
+from tensorflow.keras.models import model_from_json
 
 warnings.filterwarnings("ignore")
 
