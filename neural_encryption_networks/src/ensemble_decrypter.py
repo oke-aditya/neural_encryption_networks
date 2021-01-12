@@ -1,7 +1,7 @@
 import warnings
 
 import numpy as np
-from keras.models import model_from_json
+from tensorflow.keras.models import model_from_json
 
 warnings.filterwarnings("ignore")
 
@@ -29,19 +29,10 @@ def decrypt_file(file, net_list):
         tst = ""
         while dec_count < len(net_list):
             arr = np.load(f)
-            # print(arr)
-            # print(net_list[dec_count])
             out = nets[net_list[dec_count]].predict(arr)
             out = change_output(out)
-            # print(out)
             tst += decrypt_oh(out)
-            # print(net_list[dec_count])
-            # out = nets
-            # decrypted = decrypt_net.predict(arr)
-            # print(decrypt_out)
-            # print(decrypted)
             dec_count += 1
-    # print(tst)
     return tst
 
 
@@ -78,5 +69,5 @@ if __name__ == "__main__":
 
     nets = [decrypter_small, decrypter_large]
 
-    decrypted = decrypt_file("/content/multisave.npy", "/content/net_list.npy")
+    decrypted = decrypt_file("encrypted_data.npy", "public_key.npy")
     print(decrypted)
