@@ -1,6 +1,4 @@
 tensorflow==2.4.0
 scikit-learn
-black
-flake8
 numpy
 scipy
