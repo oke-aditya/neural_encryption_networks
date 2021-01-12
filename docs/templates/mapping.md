@@ -6,4 +6,4 @@ One requirement for this task was that the data structure being used should be a
 
 The hash maps generated have been done using the **random number** generator in python, and the number of digits being generated for each mapping, is equivalent to the number of bits the neural network will be trained on.
 
-Now for the model demonstration purposes, we used the `random` module in python for all the values that we generated. For better security, and enterprise level security, as well as by recommendation of python docs, `secret` package could be used for the same purpose
+Now for the model demonstration purposes, we used the `random` module in python for all the values that we generated. For better security, and enterprise level security, as well as by recommendation of python docs, `secret` package could be used for the same purpose.
