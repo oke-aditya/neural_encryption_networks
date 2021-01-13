@@ -1,8 +1,5 @@
-## Colab Notebooks
+## Colab Links for Notebooks
 
-- [Encrypter Small]()
+- [Encrypting with Deep Neural Networks](https://colab.research.google.com/drive/1E6sgBR0NLuUjqRD-705Bf_oG9kEQP1uF?usp=sharing)
 
-- [Encrypter Large]()
-
-- [Ensemble Network]()
-
+- [Ensemble Network for Keys](https://colab.research.google.com/drive/1YRdKXOPMcpeLH7s1IOzSVmd_eBdFWKZy?usp=sharing)
