@@ -1,6 +1,8 @@
-from keras.models import model_from_json
-import numpy as np
 import warnings
+
+import numpy as np
+from keras.models import model_from_json
+
 warnings.filterwarnings("ignore")
 
 

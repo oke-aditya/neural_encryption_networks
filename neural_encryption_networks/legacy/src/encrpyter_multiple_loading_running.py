@@ -1,7 +1,8 @@
-from keras.models import model_from_json
-import numpy as np
-from secrets import randbelow
 import warnings
+from secrets import randbelow
+
+import numpy as np
+from keras.models import model_from_json
 
 warnings.filterwarnings("ignore")
 
