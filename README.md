@@ -52,7 +52,7 @@ Install the requirments by running
 pip install -r requirements.txt
 ```
 
-The code uses Tensorflow 2.4.
+The code uses Tensorflow 2.4. And is Tested on Python 3.6+
 
 We recommend using virtual environements using Conda or similar to avoid conflicts.
 
