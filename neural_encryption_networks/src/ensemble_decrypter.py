@@ -2,6 +2,8 @@ import warnings
 
 import numpy as np
 from tensorflow.keras.models import model_from_json
+# import config
+from utils import change_output
 
 warnings.filterwarnings("ignore")
 
@@ -16,20 +18,6 @@ ENC_JSON = SAVE_PATH + "encrypter_large.json"
 
 DEC_MODEL = SAVE_PATH + "decrypter_large.h5"
 DEC_JSON = SAVE_PATH + "decrypter_large.json"
-
-
-def change_output(arr):
-    row = arr.shape[0]
-    col = arr.shape[1]
-    for i in range(row):
-        for j in range(col):
-            if arr[i][j] > 0.5:
-                arr[i][j] = 1
-            else:
-                arr[i][j] = 0
-
-    arr.astype("int")
-    return arr
 
 
 def decrypt_file(file, net_list):

@@ -3,20 +3,12 @@ from secrets import randbelow
 
 import numpy as np
 from tensorflow.keras.models import model_from_json
+# import config
+from utils import create_input_array
 
 warnings.filterwarnings("ignore")
 
-__all__ = ["create_input_array", "allocate_encrypt_packet"]
-
-
-def create_input_array(word):
-    enc_l = []
-    for i in word:
-        arr = np.zeros(91)
-        enc = ord(i) - 32
-        arr[enc] += 1
-        enc_l.append(arr)
-    return np.array(enc_l)
+__all__ = ["allocate_encrypt_packet"]
 
 
 # For every dataPacket allocate NNs and encrypt parallely.
