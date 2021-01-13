@@ -1,22 +1,14 @@
 import warnings
 from secrets import randbelow
 
+import config
 import numpy as np
 from tensorflow.keras.models import model_from_json
+from utils import create_input_array
 
 warnings.filterwarnings("ignore")
 
-__all__ = ["create_input_array", "allocate_encrypt_packet"]
-
-
-def create_input_array(word):
-    enc_l = []
-    for i in word:
-        arr = np.zeros(91)
-        enc = ord(i) - 32
-        arr[enc] += 1
-        enc_l.append(arr)
-    return np.array(enc_l)
+__all__ = ["allocate_encrypt_packet"]
 
 
 # For every dataPacket allocate NNs and encrypt parallely.
@@ -37,23 +29,23 @@ def allocate_encrypt_packet(packet, nets, filename, public_key_f):
 if __name__ == "__main__":
 
     # load json and create model
-    json_file = open("/content/encrypter_small.json", "r")
+    json_file = open(config.ENC_SMALL_JSON, "r")
     read_model_json = json_file.read()
     json_file.close()
 
     encrypter_small = model_from_json(read_model_json)
     # load weights into new model
-    encrypter_small.load_weights("/content/encrypter_small.h5")
+    encrypter_small.load_weights(config.ENC_SMALL_MODEL)
     print("Loaded model from disk")
 
     # load json and create model
-    json_file = open("/content/encrypter_large.json", "r")
+    json_file = open(config.ENC_LARGE_JSON, "r")
     read_model_json = json_file.read()
     json_file.close()
 
     encrypter_large = model_from_json(read_model_json)
     # load weights into new model
-    encrypter_large.load_weights("/content/encrypter_large.h5")
+    encrypter_large.load_weights(config.ENC_LARGE_MODEL)
     print("Loaded model from disk")
 
     encrypter_small.compile(
@@ -64,9 +56,9 @@ if __name__ == "__main__":
         optimizer="adam", loss="mean_squared_error", metrics=["acc"]
     )
 
-    packet = "abcd"
+    packet = "Some long text you want to encrypt"
     nets = [encrypter_small, encrypter_large]
 
     encrypted_file, public_key = allocate_encrypt_packet(
-        packet, nets, "encrypted_data.npy", "public_key.npy"
+        packet, nets, config.ENCRYPTED_FILE_PATH, config.PUBLIC_KEY_PATH
     )

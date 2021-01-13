@@ -1,35 +1,13 @@
 import warnings
 
+import config
 import numpy as np
 from tensorflow.keras.models import model_from_json
+from utils import change_output
 
 warnings.filterwarnings("ignore")
 
 __all__ = ["change_output", "decrypt_file", "decrypt_oh"]
-
-# Model save path
-SAVE_PATH = "../../models/"
-
-# Actual models go here !
-ENC_MODEL = SAVE_PATH + "encrypter_large.h5"
-ENC_JSON = SAVE_PATH + "encrypter_large.json"
-
-DEC_MODEL = SAVE_PATH + "decrypter_large.h5"
-DEC_JSON = SAVE_PATH + "decrypter_large.json"
-
-
-def change_output(arr):
-    row = arr.shape[0]
-    col = arr.shape[1]
-    for i in range(row):
-        for j in range(col):
-            if arr[i][j] > 0.5:
-                arr[i][j] = 1
-            else:
-                arr[i][j] = 0
-
-    arr.astype("int")
-    return arr
 
 
 def decrypt_file(file, net_list):
@@ -58,26 +36,26 @@ def decrypt_oh(oh_dec):
 if __name__ == "__main__":
 
     # load json and create model
-    json_file = open("/content/decrypter_large.json", "r")
+    json_file = open(config.DEC_LARGE_JSON, "r")
     read_model_json = json_file.read()
     json_file.close()
 
     decrypter_large = model_from_json(read_model_json)
     # load weights into new model
-    decrypter_large.load_weights("/content/decrypter_large.h5")
+    decrypter_large.load_weights(config.DEC_LARGE_MODEL)
     print("Loaded model from disk")
 
     # load json and create model
-    json_file = open("/content/decrypter_small.json", "r")
+    json_file = open(config.DEC_SMALL_JSON, "r")
     read_model_json = json_file.read()
     json_file.close()
 
     decrypter_small = model_from_json(read_model_json)
     # load weights into new model
-    decrypter_small.load_weights("/content/decrypter_small.h5")
+    decrypter_small.load_weights(config.DEC_SMALL_MODEL)
     print("Loaded model from disk")
 
     nets = [decrypter_small, decrypter_large]
 
-    decrypted = decrypt_file("encrypted_data.npy", "public_key.npy")
+    decrypted = decrypt_file(config.ENCRYPTED_FILE_PATH, config.PUBLIC_KEY_PATH)
     print(decrypted)

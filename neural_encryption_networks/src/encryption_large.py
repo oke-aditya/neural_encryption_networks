@@ -1,68 +1,13 @@
 import warnings
 
+import config
 import numpy as np
-from sklearn.metrics import accuracy_score
 from tensorflow.keras import Sequential, layers, optimizers
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.keras.models import model_from_json
+from utils import accuracy, change_output, create_input_array, create_labels
 
 warnings.filterwarnings("ignore")
-
-__all__ = ["create_labels", "create_input_array", "change_output", "accuracy"]
-
-# Model save path
-SAVE_PATH = "../../models/"
-# Check point for encrypter
-ENC_CHK = SAVE_PATH + "encrypter_large_chk"
-DEC_CHK = SAVE_PATH + "decrypter_large_chk"
-
-# Actual models go here !
-ENC_MODEL = SAVE_PATH + "encrypter_large.h5"
-ENC_JSON = SAVE_PATH + "encrypter_large.json"
-
-DEC_MODEL = SAVE_PATH + "decrypter_large.h5"
-DEC_JSON = SAVE_PATH + "decrypter_large.json"
-
-
-def create_labels(paragraph, hashmap):
-    # paragraph = paragraph.lower()
-    output = []
-    for i in paragraph:
-        output.append(list(map(int, str(hashmap[i]))))
-    return np.array(output)
-
-
-def create_input_array(word):
-    enc_l = []
-    for i in word:
-        arr = np.zeros(91)
-        enc = ord(i) - 32
-        arr[enc] += 1
-        enc_l.append(arr)
-    return np.array(enc_l)
-
-
-def change_output(arr):
-    row = arr.shape[0]
-    col = arr.shape[1]
-    for i in range(row):
-        for j in range(col):
-            if arr[i][j] > 0.5:
-                arr[i][j] = 1
-            else:
-                arr[i][j] = 0
-    arr.astype("int")
-    return arr
-
-
-def accuracy(Y_pred, Y_train):
-    """ Given the predicted array, it compares it with the hashmap and gives the accuracy score """
-    Y_pred_int = change_output(Y_pred)
-    print(
-        "Accuracy for the given batch is :",
-        accuracy_score(Y_pred, Y_pred_int) * 100,
-        " % ",
-    )
 
 
 if __name__ == "__main__":
@@ -232,7 +177,7 @@ if __name__ == "__main__":
     optim = optimizers.Adam(lr=learning_rate)
 
     checkpoint = ModelCheckpoint(
-        ENC_CHK,
+        config.ENC_LARGE_CHK,
         monitor="val_loss",
         verbose=1,
         save_best_only=True,
@@ -274,19 +219,19 @@ if __name__ == "__main__":
 
     # serialize model to JSON
     model_json = encrypter.to_json()
-    with open(ENC_JSON, "w") as json_file:
+    with open(config.ENC_LARGE_JSON, "w") as json_file:
         json_file.write(model_json)
     # serialize weights to HDF5
-    encrypter.save_weights(ENC_MODEL)
+    encrypter.save_weights(config.ENC_LARGE_MODEL)
     print("Saved model to disk")
 
     # load json and create model
-    json_file = open(ENC_JSON, "r")
+    json_file = open(config.ENC_LARGE_JSON, "r")
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
-    loaded_model.load_weights(ENC_MODEL)
+    loaded_model.load_weights(config.ENC_LARGE_MODEL)
     print("Loaded model from disk")
 
     print("Encrypter can be loaded and run")
@@ -340,7 +285,7 @@ if __name__ == "__main__":
     print(decrypter_Y_test.shape)
 
     checkpoint = ModelCheckpoint(
-        DEC_CHK,
+        config.DEC_LARGE_CHK,
         monitor="val_loss",
         verbose=1,
         save_best_only=True,
@@ -394,19 +339,19 @@ if __name__ == "__main__":
 
     # serialize model to JSON
     model_json = decrypter.to_json()
-    with open(DEC_JSON, "w") as json_file:
+    with open(config.DEC_LARGE_JSON, "w") as json_file:
         json_file.write(model_json)
     # serialize weights to HDF5
-    decrypter.save_weights(DEC_MODEL)
+    decrypter.save_weights(config.DEC_LARGE_MODEL)
     print("Saved model to disk")
 
     # load json and create model
-    json_file = open(DEC_JSON, "r")
+    json_file = open(config.DEC_LARGE_JSON, "r")
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
-    loaded_model.load_weights(DEC_MODEL)
+    loaded_model.load_weights(config.DEC_LARGE_MODEL)
     print("Loaded model from disk")
 
     print("Decrypter can be loaded and run")
