@@ -7,6 +7,16 @@ warnings.filterwarnings("ignore")
 
 __all__ = ["change_output", "decrypt_file", "decrypt_oh"]
 
+# Model save path
+SAVE_PATH = "../../models/"
+
+# Actual models go here !
+ENC_MODEL = SAVE_PATH + "encrypter_large.h5"
+ENC_JSON = SAVE_PATH + "encrypter_large.json"
+
+DEC_MODEL = SAVE_PATH + "decrypter_large.h5"
+DEC_JSON = SAVE_PATH + "decrypter_large.json"
+
 
 def change_output(arr):
     row = arr.shape[0]
