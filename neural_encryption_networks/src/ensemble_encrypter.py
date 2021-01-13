@@ -1,10 +1,9 @@
 import warnings
 from secrets import randbelow
 
+import config
 import numpy as np
 from tensorflow.keras.models import model_from_json
-
-import config
 from utils import create_input_array
 
 warnings.filterwarnings("ignore")
@@ -60,4 +59,6 @@ if __name__ == "__main__":
     packet = "Some long text you want to encrypt"
     nets = [encrypter_small, encrypter_large]
 
-    encrypted_file, public_key = allocate_encrypt_packet(packet, nets, config.ENCRYPTED_FILE_PATH, config.PUBLIC_KEY_PATH)
+    encrypted_file, public_key = allocate_encrypt_packet(
+        packet, nets, config.ENCRYPTED_FILE_PATH, config.PUBLIC_KEY_PATH
+    )

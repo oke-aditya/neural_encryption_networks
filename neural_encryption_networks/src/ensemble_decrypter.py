@@ -1,9 +1,8 @@
 import warnings
 
+import config
 import numpy as np
 from tensorflow.keras.models import model_from_json
-
-import config
 from utils import change_output
 
 warnings.filterwarnings("ignore")
