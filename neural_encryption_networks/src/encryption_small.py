@@ -10,6 +10,19 @@ warnings.filterwarnings("ignore")
 
 __all__ = ["create_labels", "create_input_array", "change_output", "accuracy"]
 
+# Model save path
+SAVE_PATH = "../../models/"
+# Check point for encrypter
+ENC_CHK = SAVE_PATH + "encrypter_small_chk"
+DEC_CHK = SAVE_PATH + "decrypter_small_chk"
+
+# Actual models go here !
+ENC_MODEL = SAVE_PATH + "encrypter_small.h5"
+ENC_JSON = SAVE_PATH + "encrypter_small.json"
+
+DEC_MODEL = SAVE_PATH + "decrypter_small.h5"
+DEC_JSON = SAVE_PATH + "decrypter_small.json"
+
 
 def create_labels(paragraph, hashmap):
     # paragraph = paragraph.lower()
@@ -218,7 +231,7 @@ if __name__ == "__main__":
     optim = optimizers.Adam(lr=learning_rate)
 
     checkpoint = ModelCheckpoint(
-        "/content/encrypter_chk.h5",
+        ENC_CHK,
         monitor="val_loss",
         verbose=1,
         save_best_only=True,
@@ -260,20 +273,20 @@ if __name__ == "__main__":
 
     # serialize encrypter to JSON
     encrypter_json = encrypter.to_json()
-    with open("encrypter_small.json", "w") as json_file:
+    with open(ENC_JSON, "w") as json_file:
         json_file.write(encrypter_json)
 
     # serialize weights to h5
-    encrypter.save_weights("encrypter_small.h5")
+    encrypter.save_weights(ENC_MODEL)
     print("Saved model to disk")
 
     # load json and create model
-    json_file = open("/content/encrypter_small.json", "r")
+    json_file = open(ENC_JSON, "r")
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
-    loaded_model.load_weights("/content/encrypter_small.h5")
+    loaded_model.load_weights(ENC_MODEL)
     print("Loaded model from disk")
 
     print("Encrypter can be loaded and run")
@@ -327,7 +340,7 @@ if __name__ == "__main__":
     print(decrypter_Y_test.shape)
 
     checkpoint = ModelCheckpoint(
-        "/content/decrypter_chk.h5",
+        DEC_CHK,
         monitor="val_loss",
         verbose=1,
         save_best_only=True,
@@ -381,19 +394,19 @@ if __name__ == "__main__":
 
     # serialize model to JSON
     decrypter_json = decrypter.to_json()
-    with open("decrypter_small.json", "w") as json_file:
+    with open(DEC_JSON, "w") as json_file:
         json_file.write(decrypter_json)
     # serialize weights to HDF5
-    decrypter.save_weights("decrypter_small.h5")
+    decrypter.save_weights(DEC_MODEL)
     print("Saved decrypter to disk")
 
     # load json and create decrypter
-    json_file = open("/content/decrypter_small.json", "r")
+    json_file = open(DEC_JSON, "r")
     loaded_decrypter_json = json_file.read()
     json_file.close()
     loaded_decrypter = model_from_json(loaded_decrypter_json)
     # load weights into new decrypter
-    loaded_decrypter.load_weights("/content/decrypter_small.h5")
+    loaded_decrypter.load_weights(DEC_MODEL)
     print("Loaded decrypter from disk")
 
     print("Decrypter can be loaded and run")

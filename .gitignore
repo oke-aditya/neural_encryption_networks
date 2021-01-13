@@ -1,3 +1,7 @@
+# Model checkpoints
+*.index
+models/checkpoint
+
 # Files
 *.DS_Store
 *.vscode

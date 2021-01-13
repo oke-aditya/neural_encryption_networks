@@ -10,6 +10,19 @@ warnings.filterwarnings("ignore")
 
 __all__ = ["create_labels", "create_input_array", "change_output", "accuracy"]
 
+# Model save path
+SAVE_PATH = "../../models/"
+# Check point for encrypter
+ENC_CHK = SAVE_PATH + "encrypter_large_chk"
+DEC_CHK = SAVE_PATH + "decrypter_large_chk"
+
+# Actual models go here !
+ENC_MODEL = SAVE_PATH + "encrypter_large.h5"
+ENC_JSON = SAVE_PATH + "encrypter_large.json"
+
+DEC_MODEL = SAVE_PATH + "decrypter_large.h5"
+DEC_JSON = SAVE_PATH + "decrypter_large.json"
+
 
 def create_labels(paragraph, hashmap):
     # paragraph = paragraph.lower()
@@ -24,7 +37,6 @@ def create_input_array(word):
     for i in word:
         arr = np.zeros(91)
         enc = ord(i) - 32
-        #         print(enc)
         arr[enc] += 1
         enc_l.append(arr)
     return np.array(enc_l)
@@ -220,7 +232,7 @@ if __name__ == "__main__":
     optim = optimizers.Adam(lr=learning_rate)
 
     checkpoint = ModelCheckpoint(
-        "/content/encrypter_chk",
+        ENC_CHK,
         monitor="val_loss",
         verbose=1,
         save_best_only=True,
@@ -262,19 +274,19 @@ if __name__ == "__main__":
 
     # serialize model to JSON
     model_json = encrypter.to_json()
-    with open("encrypter_large.json", "w") as json_file:
+    with open(ENC_JSON, "w") as json_file:
         json_file.write(model_json)
     # serialize weights to HDF5
-    encrypter.save_weights("encrypter_large.h5")
+    encrypter.save_weights(ENC_MODEL)
     print("Saved model to disk")
 
     # load json and create model
-    json_file = open("/content/encrypter_large.json", "r")
+    json_file = open(ENC_JSON, "r")
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
-    loaded_model.load_weights("/content/encrypter_large.h5")
+    loaded_model.load_weights(ENC_MODEL)
     print("Loaded model from disk")
 
     print("Encrypter can be loaded and run")
@@ -328,7 +340,7 @@ if __name__ == "__main__":
     print(decrypter_Y_test.shape)
 
     checkpoint = ModelCheckpoint(
-        "/content/decrypter_chk",
+        DEC_CHK,
         monitor="val_loss",
         verbose=1,
         save_best_only=True,
@@ -382,19 +394,19 @@ if __name__ == "__main__":
 
     # serialize model to JSON
     model_json = decrypter.to_json()
-    with open("decrypter_large.json", "w") as json_file:
+    with open(DEC_JSON, "w") as json_file:
         json_file.write(model_json)
     # serialize weights to HDF5
-    decrypter.save_weights("decrypter_large.h5")
+    decrypter.save_weights(DEC_MODEL)
     print("Saved model to disk")
 
     # load json and create model
-    json_file = open("/content/decrypter_large.json", "r")
+    json_file = open(DEC_JSON, "r")
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
-    loaded_model.load_weights("/content/decrypter_large.h5")
+    loaded_model.load_weights(DEC_MODEL)
     print("Loaded model from disk")
 
     print("Decrypter can be loaded and run")
