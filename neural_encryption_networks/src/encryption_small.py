@@ -1,11 +1,11 @@
 import warnings
 
+import config
 import numpy as np
 from tensorflow.keras import Sequential, layers, optimizers
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.keras.models import model_from_json
-import config
-from utils import create_labels, create_input_array, change_output, accuracy
+from utils import accuracy, change_output, create_input_array, create_labels
 
 warnings.filterwarnings("ignore")
 

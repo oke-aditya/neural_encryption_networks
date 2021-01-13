@@ -3,6 +3,7 @@ from secrets import randbelow
 
 import numpy as np
 from tensorflow.keras.models import model_from_json
+
 # import config
 from utils import create_input_array
 
