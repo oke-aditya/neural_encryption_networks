@@ -30,8 +30,37 @@ We also provide Colab Notebooks that can be used to reproduce our results.
 
 ## Documentation
 
-For detailed documentation visite [here](https://oke-aditya.github.io/neural_encryption_networks/)
+For detailed documentation visit [here](https://oke-aditya.github.io/neural_encryption_networks/)
+
 ## Colab Notebooks
+
+We provide Colab notebooks to directly play with. The are available in `neural_encryption_networks/notebooks` folder too.
+
+- [Encrypter Small]()
+
+- [Encrypter Large]()
+
+- [Ensemble Network]()
+
+
+
+## Runing locally
+
+Install the requirments by running
+
+```
+pip install -r requirements.txt
+```
+
+The code uses Tensorflow 2.4.
+
+We recommend using virtual environements using Conda or similar to avoid conflicts.
+
+```
+cd neural_encryption_networks/src
+```
+
+This folder contains all the code you need !
 
 ## Citation
 
