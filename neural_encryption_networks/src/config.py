@@ -22,3 +22,7 @@ ENC_SMALL_JSON = SAVE_PATH + "encrypter_small.json"
 
 DEC_SMALL_MODEL = SAVE_PATH + "decrypter_small.h5"
 DEC_SMALL_JSON = SAVE_PATH + "decrypter_small.json"
+
+# Encrpytion Files
+ENCRYPTED_FILE_PATH = SAVE_PATH + "encrypted_file.npy"
+PUBLIC_KEY_PATH = SAVE_PATH + "public_key.npy"
