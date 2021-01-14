@@ -22,7 +22,7 @@ We also provide Colab Notebooks that can be used to reproduce our results.
 
 ## Colab Notebooks
 
-We provide Colab notebooks to directly play with. The are available in `neural_encryption_networks/notebooks` folder too.
+We provide Colab notebooks to directly play with. The are available in in [this](https://github.com/oke-aditya/neural_encryption_networks/tree/master/neural_encryption_networks/notebooks) folder too.
 
 - [Encrypting with Deep Neural Networks](https://colab.research.google.com/drive/1E6sgBR0NLuUjqRD-705Bf_oG9kEQP1uF?usp=sharing)
 
@@ -51,3 +51,14 @@ This folder contains all the code you need !
 
 We will provide a Bibtex entry soon.
 For now people can cite this GitHub repository.
+
+```
+@misc{,
+  author = {Aditya Oke, Abhishek Kushwaha, Manan Agrawal, Utkrisht Sahai, Rahul Raman},
+  title = {A Novel Approach to Encrypt Data Using Deep Neural Networks},
+  year = {2021},
+  publisher = {},
+  journal = {},
+  howpublished = {https://github.com/oke-aditya/neural_encryption_networks/},
+}
+```
