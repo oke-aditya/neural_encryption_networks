@@ -22,7 +22,7 @@ We also provide Colab Notebooks that can be used to reproduce our results.
 
 ## Colab Notebooks
 
-We provide Colab notebooks to directly play with. The are available in `neural_encryption_networks/notebooks` folder too.
+We provide Colab notebooks to directly play with. The are available in in [this](https://github.com/oke-aditya/neural_encryption_networks/tree/master/neural_encryption_networks/notebooks) folder too.
 
 - [Encrypting with Deep Neural Networks](https://colab.research.google.com/drive/1E6sgBR0NLuUjqRD-705Bf_oG9kEQP1uF?usp=sharing)
 
