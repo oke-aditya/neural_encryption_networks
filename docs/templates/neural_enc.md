@@ -68,11 +68,23 @@ decrypter.add(layers.LeakyReLU())
 
 ## Training
 
-We Train Encoder and Decoder with `Mean Squared Error` Loss, `Adam` Optimizer.
-We set a small learning rate around `1e-3`
-Since there are not many gradients to compute, we use batch size of 1.
+We train Encoder and Decoder with `Mean Squared Error` Loss, `Adam` Optimizer.
+
+We keep a small learning rate around `1e-3`.
+
+Since there are not many gradients to compute, `batch size` is kept 1.
 
 Training both Encoder and Decoder Jointly takes around 3-4 mins over CPU and 2 mins over GPU.
 
-## Training Ensemble Networks
+## Ensembling Networks
+
+Once we have trained one set of enocder (encrypter) and decoder (decrypter).
+We can use similar configuration and train another.
+We trained 2 such set of encrypter and decrypters.
+Both had slightly different mapping, created by mapping algorithm.
+Encrypter, Decrypter small network had hashmap with encoding size 32 and a larger with encoding size 56.
+This allows us to create secure networks, by ensembling them.
+
+## Inference With Ensemble Networks
+
 

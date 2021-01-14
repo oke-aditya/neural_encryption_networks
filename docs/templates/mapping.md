@@ -22,7 +22,7 @@ random order
 
 ```
 
-### Running Code
+### Code
 
 Code for above pseudocode is as follows
 
