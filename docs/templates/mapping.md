@@ -1,8 +1,8 @@
-## Mapping
-
 In order to one hot vectorize the data we need to use mapping.
 
 The hash maps generated have been done using the following algorithm.
+
+### Pseudocode
 
 ```
 1. Store all the possible writable characters in a list
@@ -21,6 +21,8 @@ characters = [chr(i) for i in range(32, 123)]
 random order
 
 ```
+
+### Running Code
 
 Code for above pseudocode is as follows
 
@@ -47,5 +49,6 @@ def hash_map_generator():ters
     return hash_map
 ```
 
-The aboce code is located [here](https://github.com/oke-aditya/neural_encryption_networks/tree/master/neural_encryption_networks/src/hash_map_generator.py)
-After creating Mapping we can now Train Auto Encoders.
+The above code is located [here](https://github.com/oke-aditya/neural_encryption_networks/tree/master/neural_encryption_networks/src/hash_map_generator.py)
+
+Once we create Mapping we can Train AutoEncoders.

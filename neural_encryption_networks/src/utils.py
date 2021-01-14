@@ -6,6 +6,7 @@ from sklearn.metrics import accuracy_score
 __all__ = [
     "create_labels",
     "create_input_array",
+    "convert",
     "change_output",
     "accuracy",
     "read_from_file",

@@ -51,3 +51,14 @@ This folder contains all the code you need !
 
 We will provide a Bibtex entry soon.
 For now people can cite this GitHub repository.
+
+```
+@misc{,
+  author = {Aditya Oke, Abhishek Kushwaha, Manan Agrawal, Utkrisht Sahai, Rahul Raman},
+  title = {A Novel Approach to Encrypt Data Using Deep Neural Networks},
+  year = {2021},
+  publisher = {},
+  journal = {},
+  howpublished = {https://github.com/oke-aditya/neural_encryption_networks/},
+}
+```

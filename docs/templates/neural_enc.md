@@ -1,9 +1,8 @@
-## Neural Encryption Networks
-
-### What is Neural Encryption ?
+## Encrypting Data Using Auto-Encoders
 
 
-### How it is different from traditional cryptography ?
 
+### Training
 
-### Sampling to Train Neural Encryption Networks
+### Training Ensemble Networks
+
