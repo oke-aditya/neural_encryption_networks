@@ -1,8 +1,78 @@
 ## Encrypting Data Using Auto-Encoders
 
+## Training Set and Mapping
+
+### Enocder As Encrypter
+
+After we have created mapping, we can now Encrypt data using Deep Neural Networks.
+We create 2 simple Feed Forward networks an encoder and decoder.
+
+The encoder acts as encrypter while the decoder acts as decrypter.
+
+A simple encoder using Tensorflow.Keras API.
+
+```
+encrypter = Sequential()
+encrypter.add(layers.Dense(91, input_shape=(91,)))
+encrypter.add(layers.LeakyReLU())
+
+encrypter.add(layers.Dense(72))
+encrypter.add(layers.LeakyReLU())
+
+encrypter.add(layers.Dense(64))
+encrypter.add(layers.LeakyReLU())
+
+encrypter.add(layers.Dense(48))
+encrypter.add(layers.LeakyReLU())
+
+encrypter.add(layers.Dense(36))
+encrypter.add(layers.LeakyReLU())
+
+encrypter.add(layers.Dense(32))
+encrypter.add(layers.LeakyReLU())
+
+encrypter.add(layers.Dense(32))
+encrypter.add(layers.LeakyReLU())
+```
+
+### Decoder As Decrypter
 
 
-### Training
+```
+decrypter = Sequential()
 
-### Training Ensemble Networks
+decrypter.add(layers.Dense(32, input_shape=(32,)))
+decrypter.add(layers.LeakyReLU())
+
+decrypter.add(layers.Dense(40))
+decrypter.add(layers.LeakyReLU())
+
+decrypter.add(layers.Dense(46))
+decrypter.add(layers.LeakyReLU())
+
+decrypter.add(layers.Dense(54))
+decrypter.add(layers.LeakyReLU())
+
+decrypter.add(layers.Dense(64))
+decrypter.add(layers.LeakyReLU())
+
+decrypter.add(layers.Dense(91))
+decrypter.add(layers.LeakyReLU())
+
+decrypter.add(layers.Dense(91))
+decrypter.add(layers.LeakyReLU())
+
+decrypter.add(layers.Dense(91))
+decrypter.add(layers.LeakyReLU())
+```
+
+## Training
+
+We Train Encoder and Decoder with `Mean Squared Error` Loss, `Adam` Optimizer.
+We set a small learning rate around `1e-3`
+Since there are not many gradients to compute, we use batch size of 1.
+
+Training both Encoder and Decoder Jointly takes around 3-4 mins over CPU and 2 mins over GPU.
+
+## Training Ensemble Networks
 
