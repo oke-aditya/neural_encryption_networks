@@ -81,7 +81,6 @@ def change_output(arr):
 
 
 def accuracy(Y_pred, Y_train):
-    """ Given the predicted array, it compares it with the hashmap and gives the accuracy score """
     Y_pred_int = change_output(Y_pred)
     print(
         "Accuracy for the given batch is :",
