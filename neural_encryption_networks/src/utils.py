@@ -12,7 +12,7 @@ __all__ = [
     "read_from_file",
     "sequence",
     "random_paragraph_generator",
-    "generate_hashmap"
+    "generate_hashmap",
 ]
 
 

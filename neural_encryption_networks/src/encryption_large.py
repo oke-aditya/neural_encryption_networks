@@ -5,7 +5,8 @@ import numpy as np
 from tensorflow.keras import Sequential, layers, optimizers
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.keras.models import model_from_json
-from utils import accuracy, change_output, create_input_array, create_labels, generate_hashmap, random_paragraph_generator
+from utils import (accuracy, change_output, create_input_array, create_labels,
+                   generate_hashmap, random_paragraph_generator)
 
 warnings.filterwarnings("ignore")
 
