@@ -60,7 +60,7 @@ We train Encoder and Decoder with `Mean Squared Error` Loss, `Adam` Optimizer.
 
 We keep a small learning rate around `1e-3`.
 
-Since there are not many gradients to compute, `batch size` is kept 1.
+Since there are not many gradients to compute, `batch size` is kept dynamic as per tensorflow using `None`.
 
 Training both Encoder and Decoder Jointly takes around 3-4 mins over CPU and 2 mins over GPU.
 

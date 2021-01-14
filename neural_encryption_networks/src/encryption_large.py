@@ -170,11 +170,11 @@ if __name__ == "__main__":
     encrypter.add(layers.Dense(56))
     encrypter.add(layers.LeakyReLU())
 
-    learning_rate = 0.0015
-    epochs = 50
-    batch_size = None
+    learning_rate = config.ENC_LEARNING_RATE
+    epochs = config.ENC_EPOCHS
+    batch_size = config.ENC_BATCH_SIZE
 
-    optim = optimizers.Adam(lr=learning_rate)
+    optim = optimizers.Adam(lr=config.ENC_LEARNING_RATE)
 
     checkpoint = ModelCheckpoint(
         config.ENC_LARGE_CHK,
@@ -194,11 +194,11 @@ if __name__ == "__main__":
     history = encrypter.fit(
         X_train,
         Y_train,
-        batch_size=None,
-        epochs=epochs,
+        batch_size=config.ENC_BATCH_SIZE,
+        epochs=config.ENC_EPOCHS,
         verbose=1,
         callbacks=[checkpoint, reducelr],
-        validation_split=0.1,
+        validation_split=config.ENC_VALIDATION_SPLIT,
     )
 
     output = encrypter.predict(X_train)
@@ -262,9 +262,9 @@ if __name__ == "__main__":
     decrypter.add(layers.Dense(91))
     decrypter.add(layers.LeakyReLU())
 
-    learning_rate = 0.0015
-    epochs = 100
-    batch_size = None
+    learning_rate = config.DEC_LEARNING_RATE
+    epochs = config.DEC_EPOCHS
+    batch_size = config.DEC_BATCH_SIZE
 
     decrypter_optimizer = optimizers.Adam(lr=learning_rate)
 
@@ -298,11 +298,11 @@ if __name__ == "__main__":
     decrypter_history = decrypter.fit(
         decrypter_X_train,
         decrypter_Y_train,
-        batch_size=None,
-        epochs=epochs,
+        batch_size=config.DEC_BATCH_SIZE,
+        epochs=config.DEC_EPOCHS,
         verbose=1,
         callbacks=[checkpoint, reducelr],
-        validation_split=0.1,
+        validation_split=config.DEC_VALIDATION_SPLIT,
     )
 
     decrypted_text = decrypter.predict(decrypter_X_train)
