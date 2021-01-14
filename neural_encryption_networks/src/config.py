@@ -26,3 +26,15 @@ DEC_SMALL_JSON = SAVE_PATH + "decrypter_small.json"
 # Encrpytion Files
 ENCRYPTED_FILE_PATH = SAVE_PATH + "encrypted_file.npy"
 PUBLIC_KEY_PATH = SAVE_PATH + "public_key.npy"
+
+# Training Hyperparameters
+
+ENC_EPOCHS = 50
+ENC_BATCH_SIZE = None
+ENC_LEARNING_RATE = 0.0015
+ENC_VALIDATION_SPLIT = 0.1
+
+DEC_EPOCHS = 100
+DEC_BATCH_SIZE = None
+DEC_LEARNING_RATE = 0.0015
+DEC_VALIDATION_SPLIT = 0.1
