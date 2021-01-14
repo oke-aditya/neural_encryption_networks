@@ -41,70 +41,18 @@ We now have a long paragraph. We simply one hot encode the paragraph.
 
 Here our hashmap is slight hint of supervision to learn latent distribution.
 
+To learn a latent distribution, we train encoder and decoder.
 
-### Enocder As Encrypter
+## Encoder and Decoder
 
-After we have created mapping, we can now Encrypt data using Deep Neural Networks.
-We create 2 simple Feed Forward networks an encoder and decoder.
+The inputs of encoder are one-hot encoded data, and is hinted with labels of hashmap.
+Thus we train encoder from one-hot encoded data to hashmap, learning a latent distribution (function approximation)
 
-The encoder acts as encrypter while the decoder acts as decrypter.
+The outputs of encoder are passed as inputs to decoder.
+The decoder learns to reconstruct back the given plain text from latent distribution.
+The decoder outputs back one-hot encoded data, which is very simple to decode.
 
-A simple encoder using `tensorflow.keras` API.
-
-```
-encrypter = Sequential()
-encrypter.add(layers.Dense(91, input_shape=(91,)))
-encrypter.add(layers.LeakyReLU())
-
-encrypter.add(layers.Dense(72))
-encrypter.add(layers.LeakyReLU())
-
-encrypter.add(layers.Dense(64))
-encrypter.add(layers.LeakyReLU())
-
-encrypter.add(layers.Dense(48))
-encrypter.add(layers.LeakyReLU())
-
-encrypter.add(layers.Dense(36))
-encrypter.add(layers.LeakyReLU())
-
-encrypter.add(layers.Dense(32))
-encrypter.add(layers.LeakyReLU())
-
-encrypter.add(layers.Dense(32))
-encrypter.add(layers.LeakyReLU())
-```
-
-### Decoder As Decrypter
-
-
-```
-decrypter = Sequential()
-
-decrypter.add(layers.Dense(32, input_shape=(32,)))
-decrypter.add(layers.LeakyReLU())
-
-decrypter.add(layers.Dense(40))
-decrypter.add(layers.LeakyReLU())
-
-decrypter.add(layers.Dense(46))
-decrypter.add(layers.LeakyReLU())
-
-decrypter.add(layers.Dense(54))
-decrypter.add(layers.LeakyReLU())
-
-decrypter.add(layers.Dense(64))
-decrypter.add(layers.LeakyReLU())
-
-decrypter.add(layers.Dense(91))
-decrypter.add(layers.LeakyReLU())
-
-decrypter.add(layers.Dense(91))
-decrypter.add(layers.LeakyReLU())
-
-decrypter.add(layers.Dense(91))
-decrypter.add(layers.LeakyReLU())
-```
+We implemented this logic in tensorflow.keras API.
 
 ## Training
 
@@ -127,4 +75,10 @@ This allows us to create secure networks, by ensembling them.
 
 ## Encrypting With Ensemble Networks
 
+We have 2 sets of encrypters and decrypters this case.
+Now we can use each of them to encrypt new data, we can mark each of them with IDs
+We create a cryptographically secure random number which will allocate each ID to parts of long text data.
+Thus networks can encrypt the data allocated to them.
+The IDs allocated to them is used as a public key.
 
+More on Keys in next page.
