@@ -39,6 +39,8 @@ def random_paragraph_generator():
 
 We now have a long paragraph. We simply one hot encode the paragraph.
 
+Here our hashmap is slight hint of supervision to learn latent distribution.
+
 
 ### Enocder As Encrypter
 

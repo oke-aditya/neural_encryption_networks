@@ -27,4 +27,3 @@ In this process they both learn the latent representation.
 The latent representation can be completely random. Since, it is jointly learnt to minize the loss.
 We can add a small hint of supervision by passing labels for encoders and decoders.
 This makes the latent distribution a bit consistent. This helps in deterministic execution of AutoEncoder.
-
