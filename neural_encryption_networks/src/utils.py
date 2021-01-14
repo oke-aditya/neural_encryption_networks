@@ -1,10 +1,17 @@
-import numpy as np
 import random
+
+import numpy as np
 from sklearn.metrics import accuracy_score
 
-__all__ = ["create_labels", "create_input_array", "change_output",
-           "accuracy", "read_from_file", "sequence",
-           "random_paragraph_generator"]
+__all__ = [
+    "create_labels",
+    "create_input_array",
+    "change_output",
+    "accuracy",
+    "read_from_file",
+    "sequence",
+    "random_paragraph_generator",
+]
 
 
 def read_from_file(file):
