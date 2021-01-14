@@ -59,7 +59,8 @@ def random_paragraph_generator():
         word = sequence(word_length)
         para += word
         para += " "
-    return para.encode("utf-8")
+    # para = para[2:len(para)-2]
+    return para
 
 
 def convert(paragraph, hashmap):
