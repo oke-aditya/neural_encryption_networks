@@ -1,4 +1,4 @@
-tensorflow-cpu==2.4.0
+tensorflow-cpu==2.5.0
 scikit-learn
 black
 flake8
